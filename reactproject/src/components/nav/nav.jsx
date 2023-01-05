@@ -1,10 +1,11 @@
-import { GeistProvider, CssBaseline } from '@geist-ui/core'
 import SearchBar from "../searchBar"
+import Popover from "./popover"
 
 const Nav = () => {
 
   return (
       <div className=''>
+        <Popover name="Shop" items={["All", "Australian tees"]}/>
         <p>College Marketplace</p>
         <SearchBar/>
         <a href="#">Account</a>
@@ -15,8 +16,5 @@ const Nav = () => {
 }
 
 export default () => (
-  <GeistProvider>
-    <CssBaseline /> 
-    <Nav /> 
-  </GeistProvider>
+  <Nav /> 
 )
