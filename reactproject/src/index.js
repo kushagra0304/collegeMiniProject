@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 import Intro from "./routes/intro";
 import ErrorPage from "./error-page";
 import Login from './routes/login';
@@ -15,55 +16,59 @@ import Search from './routes/search';
 import Sell from './routes/sell';
 import Chat from './routes/chat';
 import Account from './routes/account';
-
+import App from "./app"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Intro />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "login",
-    element: <Login />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "home",
-    element: <Home />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "createAccount",
-    element: <CreateAccount />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "search",
-    element: <Search />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "sell",
-    element: <Sell />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "chat",
-    element: <Chat />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "account",
-    element: <Account />,
-    errorElement: <ErrorPage />,
-  },
+    element: <App/>,
+    children: [
+      {
+        errorElement: <ErrorPage/>,
+        children: [
+          { index: true, element: <Intro /> },
+          {
+            path: "intro",
+            element: <Intro />,
+          },
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "home",
+            element: <Home />,
+          },
+          {
+            path: "createAccount",
+            element: <CreateAccount />,
+          },
+          {
+            path: "search",
+            element: <Search />,
+          },
+          {
+            path: "sell",
+            element: <Sell />,
+          },
+          {
+            path: "chat",
+            element: <Chat />,
+          },
+          {
+            path: "account",
+            element: <Account />,
+          },
+        ]
+      }
+    ]
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 

@@ -1,0 +1,46 @@
+.popover {
+    font-size: 1.6rem;
+    margin: 5px;
+}
+
+.popover details {
+    position: relative;
+}
+
+.popover summary {
+    list-style: none;
+}
+
+.popover summary:hover {
+    text-decoration: underline;
+}
+
+.popover li {
+    list-style: none;
+}
+
+.popover ul {
+    padding: 0;
+    margin-bottom: 0;
+    margin-left: 10px;
+    position: absolute;
+}
+
+.popover__icon i {
+    translate: 0px 2px;
+    margin-left: 5px
+}
+
+.popover a {
+    text-decoration: none;
+    color: black;
+}
+
+.popover details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+}
+  
+@keyframes sweep {
+    0%    {opacity: 0; transform: translateY(-10px)}
+    100%  {opacity: 1; transform: translateX(0)}
+}
