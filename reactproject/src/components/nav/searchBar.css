@@ -1,0 +1,14 @@
+.searchBar {
+}
+
+.searchBar summary {
+    list-style: none;
+}
+
+.searchBar__content {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
