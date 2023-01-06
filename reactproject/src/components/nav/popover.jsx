@@ -6,8 +6,6 @@ const Popover = ({ name, items }) => {
     //This can be improved!
     useEffect(() => {
         document.addEventListener("click", (event)=>{
-            console.log(name)
-
             const active = document.querySelector(".popover__active");
             let targetEl = event.target; // clicked element
 
@@ -28,30 +26,19 @@ const Popover = ({ name, items }) => {
 
     const handler = (event, name) => {
         const active = document.querySelector(".popover__active")
+        const me = document.querySelector(`.${name}`)
 
         if(active !== null && active.classList.contains(name)){
             active.classList.remove("popover__active")
             return
         }
 
-        const popoverElements = document.querySelectorAll(".popover");
-        let flag = false;
-
-        for (let i = 0; i < popoverElements.length; i++) {
-            for(let j = 0; j < popoverElements[i].classList.length; j++){
-                if(popoverElements[i].classList[j] === "popover__active" && !popoverElements[i].classList.contains(`.${name}`)){
-                    popoverElements[i].querySelector(".popover__name").click()
-                    popoverElements[i].classList.remove("popover__active");
-                    flag = true;
-                    break;
-                }
-            }
-            if(flag){
-                break;
-            }
+        if(active !== null){
+            active.querySelector(".popover__name").click()
+            active.classList.remove("popover__active")
         }
 
-        document.querySelector(`.${name}`).classList.add("popover__active")
+        me.classList.add("popover__active")
         return;
     }
 
