@@ -1,69 +1,3 @@
-/* search */
-.search {
-
-}
-
-.search__modal-toggle {
-
-}
-
-.search__modal {
-
-}
-
-/* search-modal */
-
-.search-modal {
-
-}
-
-.search-model__content {
-
-}
-
-.search-model__search {
-
-}
-
-.search-model__suggestions {
-
-}
-
-.search-model__form {
-
-}
-
-.search-modal__modal-toggle {
-    
-}
-
-.search-modal__toggle {
-    /* only for JavaScript */
-}
-
-/* search-modal */
-
-.search-form {
-
-}
-
-.search-form__form {
-
-}
-
-.search-form__input {
-
-}
-
-.search-form__label {
-
-}
-
-.search-form__button {
-
-}
-
-
 .search {
     /* Display */
     position: relative;
@@ -75,6 +9,20 @@
 .search .suggestions {
     /* Display */
     position: absolute;
+}
+
+.search .suggestions[data-state="hidden"] {
+    /* Display */
+    display: none;
+}
+
+.search .suggestions .suggestion:hover{
+    /* Display */
+    cursor: pointer;
+}
+
+.search .suggestions .suggestion[data-state="selected"] .suggestion__title{
+    font-weight: bold;
 }
 
 .search .suggestions ul {
