@@ -1,6 +1,6 @@
 import Popover from "./popover"
 import './nav.css'
-import SearchBarNew from "./searchBarNew"
+import SearchBar from "./searchBar"
 
 const Nav = () => {
 
@@ -9,7 +9,7 @@ const Nav = () => {
         <Popover name="Shop" items={["All", "Australian tees"]}/>
         <Popover name="OurWorld" items={["About Us", "Giving Back"]}/>
         {/* <p className="brand">College Marketplace</p> */}
-        <SearchBarNew/>
+        <SearchBar/>
         {/* <a href="#">Account</a>
         <a href="#">Sell</a>
         <a href="#">Chat</a> */}

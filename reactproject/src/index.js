@@ -16,6 +16,7 @@ import Search from './routes/search';
 import Sell from './routes/sell';
 import Chat from './routes/chat';
 import Account from './routes/account';
+import Product from './routes/product';
 import App from "./app"
 
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
             path: "account",
             element: <Account />,
           },
+          {
+            path: "product",
+            element: <Product />
+          }
         ]
       }
     ]

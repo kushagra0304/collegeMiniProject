@@ -1,0 +1,25 @@
+.imageViewer__inner {
+    position: relative;
+}
+
+.imageViewer__image-container {
+    width: max-content;
+}
+
+.imageViewer__tracer {
+    /* Positioning */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* Box model */
+    height: 200px;
+    width: 100px;
+
+    /* Visual */
+    background-color: black;
+
+    /* Misc */
+    pointer-events: none;
+}
+

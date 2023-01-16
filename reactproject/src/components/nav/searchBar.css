@@ -1,18 +1,35 @@
-.searchBar {
+.search {
+    /* Display */
+    position: relative;
+
+    /* Box-model */
+    height: min-content;
 }
 
-.searchBar summary {
-    list-style: none;
-}
-
-.searchBar__content {
+.search .suggestions {
+    /* Display */
     position: absolute;
-    width: 100vw;
-    top: 0px;
-    left: 0px;
+}
 
-    display: flex;
+.search .suggestions[data-state="hidden"] {
+    /* Display */
+    display: none;
+}
 
-    background-color: white;
-    border-bottom: 1px solid gray;
+.search .suggestions .suggestion:hover{
+    /* Display */
+    cursor: pointer;
+}
+
+.search .suggestions .suggestion[data-state="selected"] .suggestion__title{
+    font-weight: bold;
+}
+
+.search .suggestions ul {
+    /* Box model */
+    margin: 0;
+    padding: 0;
+
+    /* misc */
+    list-style: none;
 }
