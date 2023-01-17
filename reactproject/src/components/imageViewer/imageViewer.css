@@ -6,6 +6,23 @@
     width: max-content;
 }
 
+.imageViewer__image-container img {
+    width: 500px;
+}
+
+.ImageViewer__outlet {
+    height: 400px;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.ImageViewer__outlet img {
+    width: 1000px;
+    display: block;
+    position: absolute;
+}
+
 .imageViewer__tracer {
     /* Positioning */
     position: absolute;

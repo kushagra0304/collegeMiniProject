@@ -6,6 +6,7 @@ const ImageViewer = () => {
     useEffect(() => {
         const imageViewerImgContainer = document.querySelector(".imageViewer__image-container");
         const tracer = document.querySelector(".imageViewer__tracer");
+        const outletImg = document.querySelector(".ImageViewer__outlet img");
 
         function getCoords(elem) {
             let box = elem.getBoundingClientRect();
@@ -16,22 +17,47 @@ const ImageViewer = () => {
               bottom: box.bottom + window.pageYOffset,
               left: box.left + window.pageXOffset
             };
-          }
+        }
 
         const mouseOver = (event) => {
-            // tracer.style.left = 
-            // tracer.style.left = event.pageX - tracer.offsetWidth / 2 + 'px';
-            // tracer.style.top = event.pageY - tracer.offsetHeight / 2 + 'px';
+            const coords = getCoords(imageViewerImgContainer);
+
+            // if(event.pageY >= (coords.top) && event.pageY <= (coords.top + tracer.offsetHeight/2) ) {
+            //     console.log("Hello")
+            // }
+
+            if(event.pageX >= coords.left && event.pageX <= coords.left+tracer.offsetWidth/2) {
+                tracer.style.left = 0 + "px";
+            } 
+            
+            if (event.pageX >= coords.right-tracer.offsetWidth/2 && event.pageX <= coords.right) {
+                tracer.style.left = coords.right - coords.left - tracer.offsetWidth + "px";
+            }
+
+            if(event.pageY >= coords.top && event.pageY <= coords.top+tracer.offsetHeight/2) {
+                tracer.style.top = 0 + "px";
+            } 
+            
+            if (event.pageY >= coords.bottom-tracer.offsetHeight/2 && event.pageY <= coords.bottom) {
+                tracer.style.top = coords.bottom - coords.top  - tracer.offsetHeight + "px";
+            }
+
         }
 
         const onMouseMove = (event) => {
-            let coords = getCoords(imageViewerImgContainer);
+            const coords = getCoords(imageViewerImgContainer);
 
-            if(((event.pageX + tracer.offsetWidth/2) <= coords.right) && ((event.pageX + tracer.offsetWidth/2) >= tracer.offsetWidth)) {
-                tracer.style.left = event.pageX - tracer.offsetWidth / 2 + 'px';
+            if(((event.pageX + tracer.offsetWidth/2) <= coords.right) && ((event.pageX - tracer.offsetWidth/2) >= coords.left)) {
+                tracer.style.left = event.pageX - tracer.offsetWidth / 2 - coords.left + 'px';
+                outletImg.style.left = "-" + (event.pageX - tracer.offsetWidth / 2 - coords.left)*2 + 'px'
             }
-            if(((event.pageY + tracer.offsetHeight/2) <= coords.bottom) && ((event.pageY + tracer.offsetHeight/2) >= tracer.offsetHeight)) {
-                tracer.style.top = event.pageY - tracer.offsetHeight / 2 + 'px';
+            
+            // (cursor Y position + half of tracer height) less than (image bottom's position)
+            // (cursor Y position - half of tracer height) greater than (image top's position)
+            if(((event.pageY + tracer.offsetHeight/2) <= coords.bottom) && ((event.pageY - tracer.offsetHeight/2) >= coords.top)) {
+                tracer.style.top = event.pageY - tracer.offsetHeight / 2 - coords.top + 'px';
+                outletImg.style.top = "-" + (event.pageY - tracer.offsetHeight / 2 - coords.top)*2 + 'px';
+
             }
         }
 
