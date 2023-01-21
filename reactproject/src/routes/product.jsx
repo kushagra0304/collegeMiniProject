@@ -1,6 +1,15 @@
-import ImageViewer from "../components/imageViewer/imageViewer"
+import ImageViewerMagnifier  from "../components/imageViewer/imageViewerMagnifier/imageViewerMagnifier"
+import ImageViewerMagnifierOutlet from "../components/imageViewer/imageViewerMagnifier/imageViewerMagnifierOulet";
+import ImageViewerCarousel from "../components/imageViewer/imageViewerCarousel/imageViewerCarousel";
+import { useState, useEffect } from "react";
+import "./product.css"
+
+import data from "./data.json";
 
 function Product() {
+
+    const [magnifierImage, setMagnifierImage] = useState("https://i.dummyjson.com/data/products/6/thumbnail.png");
+
     return (
         <>
             <div className="product">
@@ -8,12 +17,33 @@ function Product() {
                 <main className="product__inner">
                     <div className="product__details">
                         <div className="product-viewer">
-                            <div></div>
-                            <ImageViewer />
+                            <div className="product-viewer__magnifier">
+                                <div className="gallery">
+                                    <ul>
+                                        {data[0].images.map((imageLink) => {
+                                            return (
+                                                <>
+                                                    <li><img src={imageLink} onMouseOver={() => {setMagnifierImage(imageLink)}}/></li>
+                                                </>
+                                            )
+                                        })}
+                                    </ul>
+                                </div>
+                                <ImageViewerMagnifier 
+                                    tracerWidth="100px" 
+                                    tracerHeight="200px" 
+                                    imageWidth="500px" 
+                                    magnifier={2} 
+                                    src={magnifierImage}
+                                />
+                            </div>
+                            <div className="product-viewer__carousel">
+                                <ImageViewerCarousel images={data[0].images} height="600px"/>
+                            </div>
                         </div>
-                        <div className="product-info">
-                            <div className="ImageViewer__outlet">
-                                <img src="https://i.dummyjson.com/data/products/6/thumbnail.png" alt="" />
+                        <div className="product-info" >
+                            <div className="product-viewer__magnifier-outlet">
+                                <ImageViewerMagnifierOutlet/>
                             </div>
                         </div>
                     </div>

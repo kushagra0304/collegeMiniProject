@@ -1,0 +1,38 @@
+
+.product .product-viewer__magnifier {
+    display: none;
+    visibility: hidden;
+}
+
+.product .product-viewer__magnifier-outlet {
+    display: none;
+    visibility: hidden;
+}
+
+@media screen and (min-width: 750px) {
+    .product .product-viewer__magnifier {
+        display: block;
+        visibility: visible;
+    }
+
+    .product .product-viewer__magnifier-outlet {
+        display: block;
+        visibility: visible;
+    }
+
+    .product .product-viewer__carousel {
+        display: none;
+        visibility: hidden;
+    }
+  }
+
+.product .product-viewer .product-viewer__magnifier .gallery ul li {
+    width: 50px;
+    list-style: none;
+}
+
+.product .product-viewer .product-viewer__magnifier .gallery ul li img {
+    display: block;
+    width: 100%;
+    height: auto;
+}

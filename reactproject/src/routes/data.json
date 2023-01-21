@@ -1,0 +1,24 @@
+[
+    {
+        "title": "Apple iPhone 12 (128GB) - Blue",
+        "price": "59900",
+        "discription": "6.1-inch (15.5 cm diagonal) Super Retina XDR display Ceramic Shield, tougher than any smartphone glass A14 Bionic chip, the fastest chip ever in a smartphone Advanced dual-camera system with 12MP Ultra Wide and Wide cameras; Night mode, Deep Fusion, Smart HDR 3, 4K Dolby Vision HDR recording 12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording Industry-leading IP68 water resistance Supports MagSafe accessories for easy attach and faster wireless charging iOS with redesigned widgets on the Home screen, all-new App Library, App Clips and more",
+        "category": "mobile phone",
+        "watched": "5",
+        "seller": {
+            "sellerName": "Linus",
+            "sellerRating": "4.5",
+            "sellerLink": "#"
+        },
+        "images": [
+            "https://m.media-amazon.com/images/I/71ZOtNdaZCL._SX679_.jpg",
+            "https://m.media-amazon.com/images/I/81hB-X3SMtL._SX679_.jpg",
+            "https://m.media-amazon.com/images/I/71dKRQE+dAL._SX679_.jpg",
+            "https://m.media-amazon.com/images/I/81mrpbPBRwS._SX679_.jpg",
+            "https://m.media-amazon.com/images/I/71+tlCn1oXL._SX679_.jpg",
+            "https://m.media-amazon.com/images/I/719M6YlOXTL._SX679_.jpg"
+
+        ],
+        "currentWatching": "2"
+    }
+]

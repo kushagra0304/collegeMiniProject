@@ -1,12 +1,33 @@
 import { useEffect } from "react";
-import "./imageViewer.css"
+import "./imageViewerMagnifier.css"
 
-const ImageViewer = () => {
+const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, imageWidth, magnifier, src}) => {
 
     useEffect(() => {
-        const imageViewerImgContainer = document.querySelector(".imageViewer__image-container");
-        const tracer = document.querySelector(".imageViewer__tracer");
-        const outletImg = document.querySelector(".ImageViewer__outlet img");
+        const imageViewerImgContainer = document.querySelector(".imageViewerMagnifier .imageViewer__image-container");
+        const imageViewerImgContainerImg = document.querySelector(".imageViewerMagnifier .imageViewer__image-container img");
+        const tracer = document.querySelector(".imageViewerMagnifier .imageViewer__tracer");
+
+        let outletImg = null
+        let outlet = null
+
+        while(outlet === null && outletImg === null) {
+            outlet = document.querySelector(".ImageViewerMagnifier__outlet");
+            outletImg = document.querySelector(".ImageViewerMagnifier__outlet img");
+        }
+
+        tracer.style.height = tracerHeight;
+        tracer.style.width = tracerWidth;
+
+        imageViewerImgContainerImg.style.width = imageWidth;
+
+        outletImg.style.width = `calc(${imageWidth} * ${magnifier})`;
+
+        outlet.style.height = `calc(${tracerHeight} * ${magnifier})`;
+        outlet.style.width = `calc(${tracerWidth} * ${magnifier})`;
+
+        outletImg.setAttribute("src", src)
+
 
         function getCoords(elem) {
             let box = elem.getBoundingClientRect();
@@ -21,10 +42,6 @@ const ImageViewer = () => {
 
         const mouseOver = (event) => {
             const coords = getCoords(imageViewerImgContainer);
-
-            // if(event.pageY >= (coords.top) && event.pageY <= (coords.top + tracer.offsetHeight/2) ) {
-            //     console.log("Hello")
-            // }
 
             if(event.pageX >= coords.left && event.pageX <= coords.left+tracer.offsetWidth/2) {
                 tracer.style.left = 0 + "px";
@@ -68,13 +85,13 @@ const ImageViewer = () => {
             imageViewerImgContainer.removeEventListener("mouseover", mouseOver);
             imageViewerImgContainer.removeEventListener("mousemove", onMouseMove);
         }
-    }, [])
+    }, [src])
 
     return (
-        <div className="imageViewer">
+        <div className="imageViewerMagnifier">
             <div className="imageViewer__inner">
                 <div className="imageViewer__image-container">
-                    <img className="imageViewer__image" src="https://i.dummyjson.com/data/products/6/thumbnail.png" alt="" />
+                    <img className="imageViewer__image" src={src} alt="" />
                 </div>
                 <div className="imageViewer__tracer"></div>
             </div>
@@ -82,4 +99,4 @@ const ImageViewer = () => {
     )
 }
 
-export default ImageViewer;
+export default ImageViewerMagnifier;
