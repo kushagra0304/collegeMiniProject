@@ -1,3 +1,18 @@
-.imageViewer__inner {
+.imageViewerCarousel {
+}
+
+.imageViewerCarousel .imageViewer__inner {
     display: flex;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    position: relative;
+
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: normal;
+}
+
+.imageViewerCarousel .imageViewer__inner img {
+    width: 85%;
+    position: relative;
+    scroll-snap-align: center;
 }
