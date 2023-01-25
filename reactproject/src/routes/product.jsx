@@ -12,44 +12,48 @@ function Product() {
 
     return (
         <>
-            <div className="product">
+            {/*
+                product: adds specificity 
+             */}
+            <div className="product"> 
                 <header className="product__header"></header>
                 <main className="product__inner">
-                    <div className="product__details">
-                        <div className="product-viewer">
-                            <div className="product-viewer__magnifier">
-                                <div className="gallery">
-                                    <ul>
-                                        {data[0].images.map((imageLink) => {
-                                            return (
-                                                <>
-                                                    <li><img src={imageLink} onMouseOver={() => {setMagnifierImage(imageLink)}}/></li>
-                                                </>
-                                            )
-                                        })}
-                                    </ul>
+                    <section className="page-width">
+                        <section className="product__details">
+                            <div className="product-viewer">
+                                <div className="product-viewer__magnifier">
+                                    <ImageViewerMagnifier 
+                                        tracerWidth="200px" 
+                                        tracerHeight="100px" 
+                                        magnifier={2} 
+                                        src={magnifierImage}
+                                    />
+                                    <div className="gallery">
+                                        <ul>
+                                            {data[0].images.map((imageLink) => {
+                                                return (
+                                                    <>
+                                                        <li><img src={imageLink} onMouseOver={() => {setMagnifierImage(imageLink)}}/></li>
+                                                    </>
+                                                )
+                                            })}
+                                        </ul>
+                                    </div>
                                 </div>
-                                <ImageViewerMagnifier 
-                                    tracerWidth="100px" 
-                                    tracerHeight="200px" 
-                                    imageWidth="500px" 
-                                    magnifier={2} 
-                                    src={magnifierImage}
-                                />
+                                <div className="product-viewer__carousel">
+                                    <ImageViewerCarousel images={data[0].images} height="600px"/>
+                                </div>
                             </div>
-                            <div className="product-viewer__carousel">
-                                <ImageViewerCarousel images={data[0].images} height="600px"/>
+                            <div className="product-info" >
+                                <div className="product-info__magnifier-outlet">
+                                    <ImageViewerMagnifierOutlet/>
+                                </div>
                             </div>
-                        </div>
-                        <div className="product-info" >
-                            <div className="product-viewer__magnifier-outlet">
-                                <ImageViewerMagnifierOutlet/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-recommendations">
+                        </section>
+                    </section>
+                    <section className="product-recommendations">
 
-                    </div>
+                    </section>
                 </main>
                 <footer className="product__footer"></footer>
             </div>

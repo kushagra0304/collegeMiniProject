@@ -2,24 +2,6 @@
     position: relative;
 }
 
-.imageViewerMagnifier .imageViewer__image-container {
-    width: max-content;
-}
-
-.imageViewerMagnifier .imageViewer__image-container img {
-    display: block;
-}
-
-.ImageViewerMagnifier__outlet {
-    overflow: hidden;
-    position: relative;
-}
-
-.ImageViewerMagnifier__outlet img {
-    display: block;
-    position: absolute;
-}
-
 .imageViewerMagnifier .imageViewer__tracer {
     /* Positioning */
     position: absolute;
@@ -34,3 +16,21 @@
     pointer-events: none;
 }
 
+.imageViewerMagnifier .imageViewer__image-container {
+    
+}
+
+.imageViewerMagnifier .imageViewer__image-container img {
+    display: block;
+    width: 100%;
+}
+
+.ImageViewerMagnifier__outlet {
+    overflow: hidden;
+    position: relative;
+}
+
+.ImageViewerMagnifier__outlet img {
+    display: block;
+    position: absolute;
+}

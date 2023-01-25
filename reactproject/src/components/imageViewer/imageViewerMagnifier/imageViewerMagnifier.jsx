@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./imageViewerMagnifier.css"
 
-const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, imageWidth, magnifier, src}) => {
+const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, magnifier, src}) => {
 
     useEffect(() => {
         const imageViewerImgContainer = document.querySelector(".imageViewerMagnifier .imageViewer__image-container");
@@ -16,18 +16,26 @@ const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, imageWidth, magnifier
             outletImg = document.querySelector(".ImageViewerMagnifier__outlet img");
         }
 
+        // -------------------------------------------------------------------
+
         tracer.style.height = tracerHeight;
         tracer.style.width = tracerWidth;
-
-        imageViewerImgContainerImg.style.width = imageWidth;
-
-        outletImg.style.width = `calc(${imageWidth} * ${magnifier})`;
 
         outlet.style.height = `calc(${tracerHeight} * ${magnifier})`;
         outlet.style.width = `calc(${tracerWidth} * ${magnifier})`;
 
         outletImg.setAttribute("src", src)
 
+        // -------------------------------------------------------------------
+
+        const resizeObserver = new ResizeObserver((entries) => {
+            const imageWidth = imageViewerImgContainerImg.clientWidth;
+            outletImg.style.width = `calc(${imageWidth}px * ${magnifier})`;
+        })
+
+        resizeObserver.observe(imageViewerImgContainerImg);
+
+        // -------------------------------------------------------------------
 
         function getCoords(elem) {
             let box = elem.getBoundingClientRect();
@@ -66,14 +74,14 @@ const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, imageWidth, magnifier
 
             if(((event.pageX + tracer.offsetWidth/2) <= coords.right) && ((event.pageX - tracer.offsetWidth/2) >= coords.left)) {
                 tracer.style.left = event.pageX - tracer.offsetWidth / 2 - coords.left + 'px';
-                outletImg.style.left = "-" + (event.pageX - tracer.offsetWidth / 2 - coords.left)*2 + 'px'
+                outletImg.style.left = "-" + (event.pageX - tracer.offsetWidth / 2 - coords.left)*magnifier + 'px'
             }
             
             // (cursor Y position + half of tracer height) less than (image bottom's position)
             // (cursor Y position - half of tracer height) greater than (image top's position)
             if(((event.pageY + tracer.offsetHeight/2) <= coords.bottom) && ((event.pageY - tracer.offsetHeight/2) >= coords.top)) {
                 tracer.style.top = event.pageY - tracer.offsetHeight / 2 - coords.top + 'px';
-                outletImg.style.top = "-" + (event.pageY - tracer.offsetHeight / 2 - coords.top)*2 + 'px';
+                outletImg.style.top = "-" + (event.pageY - tracer.offsetHeight / 2 - coords.top)*magnifier + 'px';
 
             }
         }
