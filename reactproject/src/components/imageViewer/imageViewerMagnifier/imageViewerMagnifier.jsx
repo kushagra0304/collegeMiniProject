@@ -4,6 +4,7 @@ import "./imageViewerMagnifier.css"
 const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, magnifier, src}) => {
 
     useEffect(() => {
+        console.log("Hello")
         const imageViewerImgContainer = document.querySelector(".imageViewerMagnifier .imageViewer__image-container");
         const imageViewerImgContainerImg = document.querySelector(".imageViewerMagnifier .imageViewer__image-container img");
         const tracer = document.querySelector(".imageViewerMagnifier .imageViewer__tracer");
@@ -67,6 +68,8 @@ const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, magnifier, src}) => {
                 tracer.style.top = coords.bottom - coords.top  - tracer.offsetHeight + "px";
             }
 
+            tracer.setAttribute("data-state", "show")
+            outlet.setAttribute("data-state", "show")
         }
 
         const onMouseMove = (event) => {
@@ -86,12 +89,20 @@ const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, magnifier, src}) => {
             }
         }
 
+        const onMouseLeave = (_) => {
+            tracer.setAttribute("data-state", "hidden")
+            outlet.setAttribute("data-state", "hidden")
+        }
+
         imageViewerImgContainer.addEventListener("mouseover", mouseOver);
         imageViewerImgContainer.addEventListener("mousemove", onMouseMove);
+        imageViewerImgContainer.addEventListener("mouseleave", onMouseLeave);
 
         return () => {
             imageViewerImgContainer.removeEventListener("mouseover", mouseOver);
             imageViewerImgContainer.removeEventListener("mousemove", onMouseMove);
+            imageViewerImgContainer.removeEventListener("mouseleave", onMouseLeave);
+            resizeObserver.disconnect();
         }
     }, [src])
 
@@ -101,7 +112,7 @@ const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, magnifier, src}) => {
                 <div className="imageViewer__image-container">
                     <img className="imageViewer__image" src={src} alt="" />
                 </div>
-                <div className="imageViewer__tracer"></div>
+                <div className="imageViewer__tracer" data-state="hidden"></div>
             </div>
         </div>
     )

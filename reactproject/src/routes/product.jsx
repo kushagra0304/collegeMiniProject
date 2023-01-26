@@ -1,14 +1,25 @@
 import ImageViewerMagnifier  from "../components/imageViewer/imageViewerMagnifier/imageViewerMagnifier"
 import ImageViewerMagnifierOutlet from "../components/imageViewer/imageViewerMagnifier/imageViewerMagnifierOulet";
 import ImageViewerCarousel from "../components/imageViewer/imageViewerCarousel/imageViewerCarousel";
+import Accordion from "../components/accordion/accordion";
 import { useState, useEffect } from "react";
 import "./product.css"
 
 import data from "./data.json";
 
+const accordion1 = () => {
+    return (
+        <>
+            <p>
+                Hello, World!
+            </p>
+        </>
+    )
+}
+
 function Product() {
 
-    const [magnifierImage, setMagnifierImage] = useState("https://i.dummyjson.com/data/products/6/thumbnail.png");
+    const [magnifierImage, setMagnifierImage] = useState("https://m.media-amazon.com/images/I/71ZOtNdaZCL._SX679_.jp");
 
     return (
         <>
@@ -48,6 +59,7 @@ function Product() {
                                 <div className="product-info__magnifier-outlet">
                                     <ImageViewerMagnifierOutlet/>
                                 </div>
+                                <Accordion title="Material & Care" Content={accordion1}/>
                             </div>
                         </section>
                     </section>

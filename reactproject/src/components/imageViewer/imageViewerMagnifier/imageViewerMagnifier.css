@@ -16,6 +16,19 @@
     pointer-events: none;
 }
 
+.imageViewerMagnifier .imageViewer__tracer[data-state="hidden"] {
+    /* Hide */
+    visibility: hidden;
+    display: none;
+}
+
+.imageViewerMagnifier .imageViewer__tracer[data-state="show"] {
+    /* Show */
+    visibility: visible;
+    display: block;
+}
+
+
 .imageViewerMagnifier .imageViewer__image-container {
     
 }
@@ -28,6 +41,18 @@
 .ImageViewerMagnifier__outlet {
     overflow: hidden;
     position: relative;
+}
+
+.ImageViewerMagnifier__outlet[data-state="hidden"] {
+    /* Hide */
+    visibility: hidden;
+    display: none;
+}
+
+.ImageViewerMagnifier__outlet[data-state="show"] {
+    /* Show */
+    visibility: visible;
+    display: block;
 }
 
 .ImageViewerMagnifier__outlet img {

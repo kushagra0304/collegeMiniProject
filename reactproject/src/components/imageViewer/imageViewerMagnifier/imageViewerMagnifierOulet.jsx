@@ -1,7 +1,7 @@
 
 const ImageViewerMagnifierOutlet = () => {
     return (
-        <div className="ImageViewerMagnifier__outlet">
+        <div className="ImageViewerMagnifier__outlet" data-state="hidden">
             <img src="" alt="" />
         </div>
     )

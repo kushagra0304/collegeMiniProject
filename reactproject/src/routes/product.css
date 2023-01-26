@@ -58,6 +58,16 @@
 
 /* ------------------------------------------------------------------- */
 
+.product .product-info {
+    position: relative;
+}
+
+.product .product-info .product-info__magnifier-outlet{
+    position: absolute;
+}
+
+/* ------------------------------------------------------------------- */
+
 .product .product-viewer .product-viewer__magnifier .gallery ul {
     padding: 0;
     margin: 0;
