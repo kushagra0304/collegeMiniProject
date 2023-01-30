@@ -19,13 +19,11 @@
 .imageViewerMagnifier .imageViewer__tracer[data-state="hidden"] {
     /* Hide */
     visibility: hidden;
-    display: none;
 }
 
 .imageViewerMagnifier .imageViewer__tracer[data-state="show"] {
     /* Show */
     visibility: visible;
-    display: block;
 }
 
 

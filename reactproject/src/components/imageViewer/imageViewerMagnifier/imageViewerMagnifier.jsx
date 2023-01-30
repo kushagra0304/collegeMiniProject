@@ -52,6 +52,9 @@ const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, magnifier, src}) => {
         const mouseOver = (event) => {
             const coords = getCoords(imageViewerImgContainer);
 
+            tracer.setAttribute("data-state", "show")
+            outlet.setAttribute("data-state", "show")
+
             if(event.pageX >= coords.left && event.pageX <= coords.left+tracer.offsetWidth/2) {
                 tracer.style.left = 0 + "px";
             } 
@@ -67,9 +70,6 @@ const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, magnifier, src}) => {
             if (event.pageY >= coords.bottom-tracer.offsetHeight/2 && event.pageY <= coords.bottom) {
                 tracer.style.top = coords.bottom - coords.top  - tracer.offsetHeight + "px";
             }
-
-            tracer.setAttribute("data-state", "show")
-            outlet.setAttribute("data-state", "show")
         }
 
         const onMouseMove = (event) => {

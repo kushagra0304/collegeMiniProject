@@ -1,14 +1,36 @@
-[
+
     {
         "title": "Apple iPhone 12 (128GB) - Blue",
         "price": "59900",
-        "discription": "6.1-inch (15.5 cm diagonal) Super Retina XDR display Ceramic Shield, tougher than any smartphone glass A14 Bionic chip, the fastest chip ever in a smartphone Advanced dual-camera system with 12MP Ultra Wide and Wide cameras; Night mode, Deep Fusion, Smart HDR 3, 4K Dolby Vision HDR recording 12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording Industry-leading IP68 water resistance Supports MagSafe accessories for easy attach and faster wireless charging iOS with redesigned widgets on the Home screen, all-new App Library, App Clips and more",
+        "details": "A super-bright display in a durable design. Hollywood-worthy video shooting made easy. A lightning-fast chip. And a big boost in battery life you'll notice every day.",
+        "discriptions": [
+            {
+                "heading": "Screen size",
+                "content":"5 cm (6.1-inch) Super Retina XDR display"
+            },
+            {
+                "heading": "Camera",
+                "content":"Cinematic mode adds shallow depth of field and shifts focus automatically in your videos. Advanced dual-camera system with 12MP Wide and Ultra Wide cameras; Photographic Styles, Smart HDR 4, Night mode, 4K Dolby Vision HDR recording. 12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording."
+            },
+            {
+                "heading": "processor",
+                "content":"A15 Bionic chip for lightning-fast performance"
+            },
+            {
+                "heading": "Battery",
+                "content":"Up to 19 hours of video playback on a single charge."
+            },
+            {
+                "heading": "Privacy",
+                "content":"Protects your privacy. Every aspect is designed to keep your information private and secure."
+            }
+        ],
         "category": "mobile phone",
         "watched": "5",
         "seller": {
-            "sellerName": "Linus",
-            "sellerRating": "4.5",
-            "sellerLink": "#"
+            "name": "Linus",
+            "rating": "4.5",
+            "link": "#"
         },
         "images": [
             "https://m.media-amazon.com/images/I/71ZOtNdaZCL._SX679_.jpg",
@@ -21,4 +43,3 @@
         ],
         "currentWatching": "2"
     }
-]

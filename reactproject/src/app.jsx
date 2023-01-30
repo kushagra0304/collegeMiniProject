@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { Outlet } from "react-router-dom";
 import './app.css'
+import "./design_system/typography/typography.css"
 
 function App() {
     return (
