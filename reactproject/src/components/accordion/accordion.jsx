@@ -23,7 +23,7 @@ import "./accordion.css"
 //     )
 // }
 
-const Accordion = ({title, Content}) => {
+const Accordion = ({title, content}) => {
     return (
         <div className="accordion">
             <details>
@@ -37,9 +37,7 @@ const Accordion = ({title, Content}) => {
                         </div>
                     </div>
                 </summary>
-                <div className="accordion__content">
-                    {Content}
-                </div>
+                <div className="accordion__content">{content}</div>
             </details>
         </div>
     )

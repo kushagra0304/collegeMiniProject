@@ -1,15 +1,6 @@
-
-.page-width {
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+.product {
+    margin-bottom: 5rem;
 }
-
-/* @media screen and (min-width: 750px) {
-    .page-width {
-        padding: 0 5rem;
-    }
-} */
 
 /* ------------------------------------------------------------------- */
 
@@ -20,11 +11,11 @@
     }
     
     .product .product__details .product-info {
-        width: 50%;
+        width: 36%;
     }
     
     .product .product__details .product-viewer {
-        width: 50%;
+        width: 55%;
     }
 }
 
@@ -75,7 +66,10 @@
     top: 0;
 
     overflow: hidden;
-    width: 100%;
+    max-width: 100%;
+    width: min-content;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 /* ------------------------------------------------------------------- */

@@ -7,14 +7,6 @@ import "./product.css"
 
 import data from "./data.json";
 
-const AccordionContent = ({content}) => {
-    return (
-        <>
-            <p >{content}</p>
-        </>
-    )
-}
-
 const ProductInfo = () => {
     return (
         <div className="productInfo">
@@ -28,15 +20,15 @@ const ProductInfo = () => {
 
             <button id="chatWithSeller">Chat with seller</button>
 
-            <Accordion title="Details" Content={<AccordionContent content={data.details}/>} />
+            <Accordion title="Details" content={<p>{data.details}</p>} />
 
             {
                 data.discriptions.map((description) => {
-                    return <Accordion title={description.heading} Content={<AccordionContent content={<><p>{description.content}</p></>} />} />
+                    return <Accordion title={description.heading} content={<p>{description.content}</p>} />
                 })
             }
 
-            <Accordion title="Seller" Content={
+            <Accordion title="Seller" content={
                 <>
                     <p>Name - {data.seller.name}</p>
                     <p>Rating - {data.seller.rating}</p>
@@ -52,15 +44,22 @@ function Product() {
     const [magnifierImage, setMagnifierImage] = useState("https://m.media-amazon.com/images/I/71ZOtNdaZCL._SX679_.jpg");
 
     useEffect(() => {
-        const productInfoMagnifierOutlet = document.querySelector(".product-info__magnifier-outlet");
-        const productInfo = document.querySelector(".product-info")
+        const productInfo = document.querySelector(".product-info");
+        const productInfo_MagnifierOutlet = document.querySelector(".product-info__magnifier-outlet");
 
-        const temp = productInfo.getBoundingClientRect().y;
+        const productViewer_Magnifier = document.querySelector(".product-viewer__magnifier");
 
-        window.addEventListener("scroll", (event) => {
-            console.log(window.scrollY, productInfo.getBoundingClientRect().y)
-            productInfoMagnifierOutlet.style.top = window.scrollY + temp + "px";
-        });
+        const positionOutlet = (_) => {
+            if(productViewer_Magnifier.offsetTop + productInfo_MagnifierOutlet.clientHeight < productInfo.clientHeight) {
+                productInfo_MagnifierOutlet.style.top = productViewer_Magnifier.offsetTop + "px";
+            }
+        }
+
+        window.addEventListener("scroll", positionOutlet);
+
+        return () => {
+            window.removeEventListener("scroll", positionOutlet);
+        }
     }, [])
 
     return (
@@ -76,9 +75,9 @@ function Product() {
                             <div className="product-viewer">
                                 <div className="product-viewer__magnifier">
                                     <ImageViewerMagnifier 
-                                        tracerWidth="100px" 
-                                        tracerHeight="100px" 
-                                        magnifier={4} 
+                                        tracerWidth="200px" 
+                                        tracerHeight="300px" 
+                                        magnifier={2} 
                                         src={magnifierImage}
                                     />
                                     <div className="gallery">
