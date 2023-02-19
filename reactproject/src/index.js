@@ -18,6 +18,7 @@ import Chat from './routes/chat';
 import Account from './routes/account';
 import Product from './routes/product';
 import App from "./app"
+import Wishlist from './routes/wishlist';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
           {
             path: "intro",
             element: <Intro />,
+          },
+          {
+            path: "wishlist",
+            element: <Wishlist />,
           },
           {
             path: "login",

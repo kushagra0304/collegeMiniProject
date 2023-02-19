@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Popover from "./popover"
 import './nav.css'
 import SearchBar from "./searchBar"
@@ -13,6 +14,7 @@ const Nav = () => {
         {/* <a href="#">Account</a>
         <a href="#">Sell</a>
         <a href="#">Chat</a> */}
+        <Link to={"/wishlist"}>wishlist</Link>
       </div>
   )
 }
