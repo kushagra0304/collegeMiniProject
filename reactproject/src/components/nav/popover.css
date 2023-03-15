@@ -1,6 +1,8 @@
 .popover {
     font-size: 1.6rem;
     margin: 5px;
+
+    background-color: white;
 }
 
 .popover details {
@@ -24,6 +26,8 @@
     margin-bottom: 0;
     margin-left: 10px;
     position: absolute;
+
+    background-color: white;
 }
 
 .popover__icon i {

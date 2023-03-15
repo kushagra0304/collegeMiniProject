@@ -4,7 +4,6 @@ import "./imageViewerMagnifier.css"
 const ImageViewerMagnifier  = ({tracerWidth, tracerHeight, magnifier, src}) => {
 
     useEffect(() => {
-        console.log("Hello")
         const imageViewerImgContainer = document.querySelector(".imageViewerMagnifier .imageViewer__image-container");
         const imageViewerImgContainerImg = document.querySelector(".imageViewerMagnifier .imageViewer__image-container img");
         const tracer = document.querySelector(".imageViewerMagnifier .imageViewer__tracer");

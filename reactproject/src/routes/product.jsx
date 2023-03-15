@@ -4,42 +4,65 @@ import ImageViewerCarousel from "../components/imageViewer/imageViewerCarousel/i
 import Accordion from "../components/accordion/accordion";
 import { useState, useEffect } from "react";
 import "./product.css"
+import tempData from "./data.json"
+import products from "../components/nav/data.json";
+import productIndex from "../variables/temp";
 
-import data from "./data.json";
 
-const ProductInfo = () => {
+const ProductInfo = ({data}) => {
+
     return (
         <div className="productInfo">
             <h2>{data.title}</h2>
             <p className="price">Rs. {data.price}.00</p>
 
-            <div className="watch-stats">
+            {/* <div className="watch-stats">
                 <p>{data.watched} watched in last 24 hours</p>
                 <p>{data.currentWatching} currently watching</p>
-            </div>
+            </div> */}
 
-            <button id="chatWithSeller">Chat with seller</button>
+            {/* <button id="chatWithSeller">Chat with seller</button> */}
 
-            <Accordion title="Details" content={<p>{data.details}</p>} />
+            <form>
+                <label style={{margin: "10px 0", display: "block"}}>
+                    Enter Email:
+                    <input type="text" />
+                </label>
+                <button id="chatWithSeller">Send</button>
+            </form>
 
-            {
+            <Accordion title="Details" content={<p>{data.description}</p>} />
+
+            {/* {
                 data.discriptions.map((description) => {
                     return <Accordion title={description.heading} content={<p>{description.content}</p>} />
                 })
-            }
+            } */}
 
-            <Accordion title="Seller" content={
+            {/* <Accordion title="Seller" content={
                 <>
                     <p>Name - {data.seller.name}</p>
                     <p>Rating - {data.seller.rating}</p>
                     <p><a href={data.seller.link}>View Seller</a></p>
                 </>
-            } />
+            } /> */}
         </div>
     )
 }
 
 function Product() {
+
+    const [data, setData] = useState(tempData);
+
+
+    useEffect(() => {
+        products.products.map((product) => {
+            if(product.id === productIndex.index) {
+                setData(product)
+            }
+            return product
+        })
+    }, [data])
 
     const [magnifierImage, setMagnifierImage] = useState("https://m.media-amazon.com/images/I/71ZOtNdaZCL._SX679_.jpg");
 
@@ -101,7 +124,7 @@ function Product() {
                                     <ImageViewerMagnifierOutlet/>
                                 </div>
                                 <div className="product-info__info">
-                                    <ProductInfo/>
+                                    <ProductInfo data={data}/>
                                 </div>
                             </div>
                         </section>

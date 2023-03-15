@@ -9,6 +9,8 @@
 .search .suggestions {
     /* Display */
     position: absolute;
+
+    background-color: whitesmoke;
 }
 
 .search .suggestions[data-state="hidden"] {

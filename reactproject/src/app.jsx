@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import './app.css'
 import "./design_system/typography/typography.css"
 import Footer from "./layout/footer/footer";
+import Nav from "./components/nav/nav"
 
 function App() {
     return (
@@ -10,7 +11,7 @@ function App() {
             <Helmet>
                 <script src="https://kit.fontawesome.com/18b6024cfd.js" crossorigin="anonymous"></script>
             </Helmet>
-            <div style={{height: "100px"}}></div>
+            <Nav></Nav>
             <Outlet/>
             <Footer></Footer>
         </>
