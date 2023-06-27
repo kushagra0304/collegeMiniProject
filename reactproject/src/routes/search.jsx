@@ -1,7 +1,8 @@
 import Nav from "../components/nav/nav"
 import { Link } from "react-router-dom";
 import ProductCardView from "../components/productCardView/productCardView";
-import data from "../components/nav/data.json";
+// import data from "../components/nav/data.json";
+import data from "./data.json";
 import "./search.css"
 
 function Search() {
@@ -15,9 +16,10 @@ function Search() {
             </ul>
             <div className="searchPage">
                 {
-                    data.products.map((product) => {
-                        return <ProductCardView product={product}/>
-                    })
+                    <ProductCardView product={data}/>
+                    // data.products.map((product) => {
+                    //     return <ProductCardView product={product}/>
+                    // })
                 }
             </div>
         </div>

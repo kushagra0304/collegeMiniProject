@@ -33,19 +33,19 @@ const ProductInfo = ({data}) => {
 
             <Accordion title="Details" content={<p>{data.description}</p>} />
 
-            {/* {
+            {
                 data.discriptions.map((description) => {
                     return <Accordion title={description.heading} content={<p>{description.content}</p>} />
                 })
-            } */}
+            }
 
-            {/* <Accordion title="Seller" content={
+            <Accordion title="Seller" content={
                 <>
                     <p>Name - {data.seller.name}</p>
                     <p>Rating - {data.seller.rating}</p>
                     <p><a href={data.seller.link}>View Seller</a></p>
                 </>
-            } /> */}
+            } />
         </div>
     )
 }
