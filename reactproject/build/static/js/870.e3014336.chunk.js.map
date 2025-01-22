@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/870.e3014336.chunk.js","mappings":"oIAQA,UARa,WACT,IAAI,IAAIA,EAAI,EAAGA,EAAI,IAAYA,KAI/B,OAAQ,wBAAI,SAChB,C","sources":["routes/temp.jsx"],"sourcesContent":["const Temp = () => {\n    for(let i = 0; i < 1000000000; i++){\n\n    }\n\n    return (<h1>Hello</h1>)\n}\n\nexport default Temp;"],"names":["i"],"sourceRoot":""}
