@@ -4,6 +4,7 @@ import './app.css'
 import "./design_system/typography/typography.css"
 import Footer from "./layout/footer/footer";
 import Nav from "./components/nav/nav"
+import Product from "./routes/product";
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
                 <script src="https://kit.fontawesome.com/18b6024cfd.js" crossorigin="anonymous"></script>
             </Helmet>
             <Nav></Nav>
-            <Outlet/>
+            <Product />
             <Footer></Footer>
         </>
     )

@@ -24,63 +24,58 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-    children: [
-      {
-        errorElement: <ErrorPage/>,
-        children: [
-          { index: true, element: <Intro /> },
-          {
-            path: "intro",
-            element: <Intro />,
-          },
-          {
-            path: "wishlist",
-            element: <Wishlist />,
-          },
-          {
-            path: "login",
-            element: <Login />,
-          },
-          {
-            path: "home",
-            element: <Home />,
-          },
-          {
-            path: "createAccount",
-            element: <CreateAccount />,
-          },
-          {
-            path: "search",
-            element: <Search />,
-          },
-          {
-            path: "sell",
-            element: <Sell />,
-          },
-          {
-            path: "chat",
-            element: <Chat />,
-          },
-          {
-            path: "account",
-            element: <Account />,
-          },
-          {
-            path: "product",
-            element: <Product />
-          }
-        ]
-      }
-    ]
+    // children: [
+    //   {
+    //     errorElement: <ErrorPage/>,
+    //     children: [
+    //       { index: true, element: <Intro /> },
+    //       {
+    //         path: "intro",
+    //         element: <Intro />,
+    //       },
+    //       {
+    //         path: "wishlist",
+    //         element: <Wishlist />,
+    //       },
+    //       {
+    //         path: "login",
+    //         element: <Login />,
+    //       },
+    //       {
+    //         path: "home",
+    //         element: <Home />,
+    //       },
+    //       {
+    //         path: "createAccount",
+    //         element: <CreateAccount />,
+    //       },
+    //       {
+    //         path: "search",
+    //         element: <Search />,
+    //       },
+    //       {
+    //         path: "sell",
+    //         element: <Sell />,
+    //       },
+    //       {
+    //         path: "chat",
+    //         element: <Chat />,
+    //       },
+    //       {
+    //         path: "account",
+    //         element: <Account />,
+    //       },
+    //       {
+    //         path: "product",
+    //         element: <Product />
+    //       }
+    //     ]
+    //   }
+    // ]
   }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <RouterProvider router={router}/>
-);
+root.render( <RouterProvider router={router}/> );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
